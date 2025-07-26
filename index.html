@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Compartments Portable Pill Case - FASHION.ID</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --baby-blue: #D6EBFF;
+            --silver-gray: #CCCCCC;
+            --light-gray: #FAFAFA;
+            --dark-gray: #555555;
+            --gold-star: #FFD700;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(214,235,255,0.8) 100%);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--baby-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        
+        .star-rating i {
+            color: var(--gold-star);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .lightbox.show {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 8px;
+        }
+        
+        .close-lightbox {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        .price-original {
+            text-decoration: line-through;
+            color: var(--dark-gray);
+        }
+        
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            transform: translateY(100px);
+            transition: transform 0.3s ease;
+        }
+        
+        .sticky-cta.show {
+            transform: translateY(0);
+        }
+        
+        .product-gallery img {
+            transition: transform 0.3s ease;
+            cursor: zoom-in;
+        }
+        
+        .product-gallery img:hover {
+            transform: scale(1.03);
+        }
+        
+        .zoom-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .zoom-modal.show {
+            display: flex;
+        }
+        
+        .zoom-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .zoom-img {
+            max-width: 100%;
+            max-height: 90vh;
+        }
+        
+        .close-zoom {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        .carousel {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+        }
+        
+        @media (min-width: 768px) {
+            .carousel-item {
+                min-width: 50%;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .carousel-item {
+                min-width: 33.333%;
+            }
+        }
+        
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.7);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .carousel-control.prev {
+            left: 10px;
+        }
+        
+        .carousel-control.next {
+            right: 10px;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .carousel-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--silver-gray);
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        
+        .carousel-indicator.active {
+            background: var(--dark-gray);
+        }
+        
+        .promo-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FF4757;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .countdown-item {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            min-width: 50px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .countdown-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FF4757;
+        }
+        
+        .countdown-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--dark-gray);
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .buy-btn {
+            background: linear-gradient(135deg, #55c4cf 0%, #25D366 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-2xl font-bold text-gray-800">FASHION.ID</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#features" class="text-gray-700 hover:text-blue-600 transition">Fitur</a>
+                <a href="#gallery" class="text-gray-700 hover:text-blue-600 transition">Galeri</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition">Testimoni</a>
+                <a href="#pricing" class="text-gray-700 hover:text-blue-600 transition">Harga</a>
+                <a href="#order" class="text-gray-700 hover:text-blue-600 transition">Pesan</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="#features" class="block py-2 text-gray-700 hover:text-blue-600 transition">Fitur</a>
+            <a href="#gallery" class="block py-2 text-gray-700 hover:text-blue-600 transition">Galeri</a>
+            <a href="#testimonials" class="block py-2 text-gray-700 hover:text-blue-600 transition">Testimoni</a>
+            <a href="#pricing" class="block py-2 text-gray-700 hover:text-blue-600 transition">Harga</a>
+            <a href="#order" class="block py-2 text-gray-700 hover:text-blue-600 transition">Pesan</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://cdn.hotishop.com/image/b19f016d4bd9b56c8d0097873094985546fbdcac.jpeg');">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="container mx-auto px-4 z-10">
+            <div class="max-w-2xl glass-card p-8 rounded-xl shadow-xl">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">7 Compartments Portable Pill Case</h1>
+                <p class="text-lg text-gray-700 mb-6">Kotak obat travel 7 sekat dengan desain kekinian, memudahkan kita untuk mengkonsumsi vitamin dan obat karena desainnya sangat simpel dan mudah dibawa kemana saja untuk traveling.</p>
+                <div class="flex flex-wrap gap-4 mb-6">
+                    <div class="flex items-center bg-white px-3 py-1 rounded-full shadow-sm">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span class="text-sm">Desain Ringkas</span>
+                    </div>
+                    <div class="flex items-center bg-white px-3 py-1 rounded-full shadow-sm">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span class="text-sm">Travel-Friendly</span>
+                    </div>
+                    <div class="flex items-center bg-white px-3 py-1 rounded-full shadow-sm">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span class="text-sm">Multifungsi</span>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#order" class="buy-btn px-6 py-3 rounded-lg font-bold text-center shadow-lg">Pesan Sekarang</a>
+                    <a href="#features" class="bg-white px-6 py-3 rounded-lg font-bold text-gray-800 text-center border border-gray-200 shadow-lg hover:bg-gray-50 transition">Pelajari Fitur</a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <a href="#features" class="animate-bounce text-white text-2xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="bg-white py-8 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt text-3xl text-blue-500 mr-3"></i>
+                    <div>
+                        <p class="font-bold">Garansi 100%</p>
+                        <p class="text-sm text-gray-600">Kepuasan Pelanggan</p>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-truck text-3xl text-blue-500 mr-3"></i>
+                    <div>
+                        <p class="font-bold">Gratis Ongkir</p>
+                        <p class="text-sm text-gray-600">Seluruh Indonesia</p>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-undo text-3xl text-blue-500 mr-3"></i>
+                    <div>
+                        <p class="font-bold">Pengembalian</p>
+                        <p class="text-sm text-gray-600">14 Hari</p>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-headset text-3xl text-blue-500 mr-3"></i>
+                    <div>
+                        <p class="font-bold">Dukungan 24/7</p>
+                        <p class="text-sm text-gray-600">Customer Service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Fitur Unggulan</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Kotak obat dengan desain premium yang memenuhi semua kebutuhan Anda</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="glass-card p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="feature-icon mb-4">
+                        <i class="fas fa-th-large text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">7 Sekat Praktis</h3>
+                    <p class="text-gray-600 text-center">Dengan 7 kompartemen terpisah, mudah mengatur obat atau vitamin untuk seminggu penuh.</p>
+                </div>
+                <div class="glass-card p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="feature-icon mb-4">
+                        <i class="fas fa-magnet text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Penutup Magnetik</h3>
+                    <p class="text-gray-600 text-center">Sistem buka tutup menggunakan magnet yang kuat, praktis dan aman untuk dibawa traveling.</p>
+                </div>
+                <div class="glass-card p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="feature-icon mb-4">
+                        <i class="fas fa-broom text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Mudah Dibersihkan</h3>
+                    <p class="text-gray-600 text-center">Setiap sekat bisa dilepas sehingga mudah dibersihkan dan dijamin higienis.</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Spesifikasi Produk</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Ukuran Tertutup: 10cm x 7cm x 2,5cm</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Ukuran Terbuka: 10cm x 14,8cm x 2,5cm</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Warna: Pink, Blue, Beige, Tosca</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Material: Plastik berkualitas tinggi, bebas BPA</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Sekat besar untuk menyimpan perban/hansaplast</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-xl overflow-hidden">
+                        <video class="w-full h-auto" controls poster="https://cdn.hotishop.com/image/b19f016d4bd9b56c8d0097873094985546fbdcac.jpeg">
+                            <source src="https://down-tx-sg.vod.susercontent.com/api/v4/11110105/mms/id-11110105-6ke1h-lo2e3bk56gw1cb.16000081699952163.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Galeri Produk</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Lihat detail produk dari berbagai angle</p>
+            </div>
+            
+            <div class="product-gallery grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="https://cdn.hotishop.com/image/2022/08/d3768f708310d384e8909281d199b6922c2000158bc8beccf247ac221f078fc3-700.jpeg" alt="7 Compartments Portable Pill Case" class="w-full h-auto object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="https://cdn.hotishop.com/image/2022/08/c34531cbb9bc0bb1266bd7ba89240ac31369176eae4a4b171d79747d0944aad5-600.jpeg" alt="7 Compartments Portable Pill Case" class="w-full h-auto object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="https://cdn.hotishop.com/image/2022/08/707f0be6ed42fb9b25e2b137601b61d406f60b38a039390568e9a0210317782b-600.jpeg" alt="7 Compartments Portable Pill Case" class="w-full h-auto object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="https://cdn.hotishop.com/image/2022/08/6cff0be95bc294734a038f17faefbb8780f9dc4beb5f448ffbcddf22c79e28b8-600.jpeg" alt="7 Compartments Portable Pill Case" class="w-full h-auto object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="https://cdn.hotishop.com/image/e17c2b20ed267488cb5b12275de7d9cc01799e5c-600.jpeg" alt="7 Compartments Portable Pill Case" class="w-full h-auto object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="https://cdn.hotishop.com/image/2022/08/2ee1a901a6d137cbb31ff6af5104b9aac0805270003cce650edc4c34cc5dd91e-600.jpeg" alt="7 Compartments Portable Pill Case" class="w-full h-auto object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="https://cdn.hotishop.com/image/2022/09/c9eec85b66b822bc76e84699596c84d1e465d3a11c8fe9b0584455990ee6d57e.jpeg" alt="7 Compartments Portable Pill Case" class="w-full h-auto object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="https://cdn.hotishop.com/image/b19f016d4bd9b56c8d0097873094985546fbdcac.jpeg" alt="7 Compartments Portable Pill Case" class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Apa Kata Pelanggan Kami?</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Lebih dari 500+ pelanggan puas dengan produk kami</p>
+            </div>
+            
+            <div class="relative">
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <!-- Testimonial 1 -->
+                        <div class="carousel-item p-4">
+                            <div class="testimonial-card bg-white p-6 rounded-xl shadow-sm h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://i.pinimg.com/1200x/be/b5/1d/beb51d07bfb189c15576a9677da44ade.jpg" alt="rimaaashs" class="profile-img mr-3">
+                                    <div>
+                                        <h4 class="font-bold">rimaaashs</h4>
+                                        <div class="star-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 mb-4">"Sangat membantu untuk atur obat harian, gak perlu repot lagi bawa banyak botol"</p>
+                                <img src="https://down-id.img.susercontent.com/file/id-11134103-7ras9-m11hb3zuhycf71.webp" alt="Testimoni rimaaashs" class="testimonial-img">
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="carousel-item p-4">
+                            <div class="testimonial-card bg-white p-6 rounded-xl shadow-sm h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://i.pinimg.com/1200x/52/bc/45/52bc455e6d1d30debc8629f54f85d408.jpg" alt="lintangnurfs" class="profile-img mr-3">
+                                    <div>
+                                        <h4 class="font-bold">lintangnurfs</h4>
+                                        <div class="star-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 mb-4">"7 slot-nya cukup untuk seminggu, jadi lebih teratur minum vitamin 💯"</p>
+                                <img src="https://down-id.img.susercontent.com/file/id-11134103-7rbk0-m8wt8u75pzptf6.webp" alt="Testimoni lintangnurfs" class="testimonial-img">
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="carousel-item p-4">
+                            <div class="testimonial-card bg-white p-6 rounded-xl shadow-sm h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://i.pinimg.com/736x/67/d8/ed/67d8edb025a427b446a99a98eab4d67c.jpg" alt="allena556" class="profile-img mr-3">
+                                    <div>
+                                        <h4 class="font-bold">allena556</h4>
+                                        <div class="star-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 mb-4">"Desainnya simpel tapi fungsional. Bener-bener ngebantu banget buat yang rutin konsumsi suplemen."</p>
+                                <img src="https://down-id.img.susercontent.com/file/id-11134103-7r98o-lqei8gow0q267d.webp" alt="Testimoni allena556" class="testimonial-img">
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 4 -->
+                        <div class="carousel-item p-4">
+                            <div class="testimonial-card bg-white p-6 rounded-xl shadow-sm h-full">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://i.pinimg.com/1200x/fe/66/9e/fe669e6c8db3f241b7694a4599ed6091.jpg" alt="giechaella" class="profile-img mr-3">
+                                    <div>
+                                        <h4 class="font-bold">giechaella</h4>
+                                        <div class="star-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 mb-4">"Praktis banget! Gak ribet bawa banyak-banyak."</p>
+                                <img src="https://down-id.img.susercontent.com/file/id-11134103-7r992-lt4pqp9xogtwae.webp" alt="Testimoni giechaella" class="testimonial-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-control prev">
+                    <i class="fas fa-chevron-left text-gray-700"></i>
+                </button>
+                <button class="carousel-control next">
+                    <i class="fas fa-chevron-right text-gray-700"></i>
+                </button>
+            </div>
+            
+            <div class="carousel-indicators">
+                <button class="carousel-indicator active"></button>
+                <button class="carousel-indicator"></button>
+                <button class="carousel-indicator"></button>
+                <button class="carousel-indicator"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Pilihan Paket</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Dapatkan penawaran terbaik untuk kebutuhan Anda</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Package 1 -->
+                <div class="glass-card p-8 rounded-xl shadow-sm relative">
+                    <div class="promo-badge">Hemat 50%</div>
+                    <h3 class="text-2xl font-bold text-center mb-4">BELI 1</h3>
+                    <div class="text-center mb-6">
+                        <span class="price-original text-lg">Rp 319.600</span>
+                        <p class="text-3xl font-bold text-blue-600">Rp 159.800</p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>1x 7 Compartments Portable Pill Case</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Gratis ongkir seluruh Indonesia</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Garansi 14 hari</span>
+                        </li>
+                    </ul>
+                    <a href="#order" class="buy-btn block text-center px-6 py-3 rounded-lg font-bold">Pilih Paket Ini</a>
+                </div>
+                
+                <!-- Package 2 -->
+                <div class="glass-card p-8 rounded-xl shadow-sm relative bg-gradient-to-br from-blue-50 to-white">
+                    <div class="promo-badge">Hemat 50%</div>
+                    <h3 class="text-2xl font-bold text-center mb-4">BELI 3 GRATIS 2</h3>
+                    <div class="text-center mb-6">
+                        <span class="price-original text-lg">Rp 378.800</span>
+                        <p class="text-3xl font-bold text-blue-600">Rp 189.400</p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>5x 7 Compartments Portable Pill Case</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Gratis ongkir seluruh Indonesia</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Garansi 30 hari</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Bonus tas penyimpanan eksklusif</span>
+                        </li>
+                    </ul>
+                    <a href="#order" class="buy-btn block text-center px-6 py-3 rounded-lg font-bold">Pilih Paket Ini</a>
+                </div>
+            </div>
+            
+            <div class="mt-12 glass-card p-6 rounded-xl max-w-2xl mx-auto">
+                <div class="text-center mb-4">
+                    <h4 class="text-xl font-bold">PROMO TERBATAS!</h4>
+                    <p class="text-gray-600">Harga spesial hanya berlaku hingga:</p>
+                </div>
+                <div class="countdown mb-4">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Hari</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Jam</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Menit</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Detik</div>
+                    </div>
+                </div>
+                <p class="text-center text-sm text-gray-600">Setelah waktu habis, harga akan kembali normal</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Pesan Sekarang</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Isi formulir berikut untuk memesan produk kami</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-xl shadow-sm">
+                    <h3 class="text-2xl font-bold mb-6">Form Pemesanan</h3>
+                    
+                    <!-- OrderOnline Embed Code -->
+                    <div class="ooef">
+                        <form class="orderonline-embed-form" data-username="nava" data-product-slug="7-compartments-portable-pill-case" data-product-id="6883d8cb8b742bb67d05ab4c" id="oo-embed-form-7-compartments-portable-pill-case-2627" data-origin="orderonline">
+                            <div class="ooef-loader"><style>.ooef-loader{visibility: hidden;opacity: 0;position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;animation: ooLoadingIn 10s ease;-webkit-animation: ooLoadingIn 10s ease;animation-fill-mode: forwards;overflow: hidden}@keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}@-webkit-keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}.ooef-loader>div,.ooef-loader>div:after{border-radius: 50%;width: 2.5rem;height: 2.5rem}.ooef-loader>div{font-size: 10px;position: relative;text-indent: -9999em;border: .25rem solid #f5f5f5;border-left: .25rem solid #55c4cf;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-animation: ooLoading 1.1s infinite linear;animation: ooLoading 1.1s infinite linear}.ooef-loader.error>div{border-left: .25rem solid #ff4500;animation-duration: 5s}@-webkit-keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}@keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}</style><div aria-live="polite" role="status"><div>Loading...</div></div></div>
+                        </form>
+                    </div>
+                    <script>
+                        if (typeof xLogError != 'function') {
+                            var xLogError = function (error) {
+                                var req = new XMLHttpRequest();
+                                var payload = JSON.stringify({ url: document.location.href, line: error.line, stack: error.stack });
+                                var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
+                                req.open('POST', 'https://api.orderonline.id/log', true);
+                                req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                                req.send(params);
+                            };
+                        }
+                        try {
+                            if (typeof xEmbedScript != 'function') {
+                                var xEmbedScript = function () {
+                                    !function(w, d, e, v, id, t, s) {
+                                        if (d.getElementById(id)) return;
+                                        t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                                        s = d.getElementsByTagName(e)[0];
+                                        s.parentNode.insertBefore(t, s);
+                                    }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.4', 'oo-embed-js');
+                                };
+                            }
+                            if (typeof xEmbedInit != 'function') {
+                                var xEmbedInit = function (w, n) {
+                                    if (w.ooe) return;
+                                    n = w.ooe = function() {
+                                        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                                    };
+                                    if (!w._ooe) w._ooe = n;
+                                    n.push = n;n.loaded = !0;n.version = '8.0.4';n.queue = [];
+                                };
+                            }
+                            xEmbedInit(window);
+                            ooe('setup', 'redirect', 'https://nava.orderonline.id');
+                            ooe('init', '5f119cd08dcbdb2737678706', '6883d8cb8b742bb67d05ab4c', '6883d8cb8b742bb67d05ab4d', 'oo-embed-form-7-compartments-portable-pill-case-2627', {"mode":"page","action":"Klik untuk pemesanan","title":"Form Pemesanan","triggerPixel":true,"triggerGtm":true});
+                            if (!window.jQuery) {
+                                !function(w, d, e, v, id, t, s) {
+                                    if (d.getElementById(id)) return;
+                                    t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                                    t.addEventListener('load', xEmbedScript);
+                                    s = d.getElementsByTagName(e)[0];
+                                    s.parentNode.insertBefore(t, s);
+                                }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
+                            } else {
+                                xEmbedScript();
+                            }
+                        } catch (e) {
+                            xLogError(e);
+                            throw e;
+                        }
+                    </script>
+                    <!-- End OrderOnline Embed Code -->
+                </div>
+    
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Pertanyaan yang Sering Diajukan</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Temukan jawaban untuk pertanyaan umum tentang produk kami</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="accordion-item mb-4 border-b border-gray-200 pb-4">
+                    <button class="accordion-button flex justify-between items-center w-full text-left font-bold text-lg py-2 focus:outline-none">
+                        <span>Berapa lama waktu pengiriman?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content hidden pt-2 text-gray-600">
+                        <p>Waktu pengiriman bervariasi tergantung lokasi Anda. Untuk wilayah Jabodetabek biasanya 1-2 hari kerja, luar Jawa 3-5 hari kerja, dan wilayah Indonesia Timur 5-7 hari kerja. Kami selalu mengupayakan pengiriman secepat mungkin.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item mb-4 border-b border-gray-200 pb-4">
+                    <button class="accordion-button flex justify-between items-center w-full text-left font-bold text-lg py-2 focus:outline-none">
+                        <span>Apakah produk ini original?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content hidden pt-2 text-gray-600">
+                        <p>Ya, semua produk yang kami jual 100% original dengan kualitas terbaik. Kami bekerja sama langsung dengan supplier resmi untuk memastikan kualitas produk.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item mb-4 border-b border-gray-200 pb-4">
+                    <button class="accordion-button flex justify-between items-center w-full text-left font-bold text-lg py-2 focus:outline-none">
+                        <span>Bagaimana cara membersihkan produk ini?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content hidden pt-2 text-gray-600">
+                        <p>Anda bisa melepas semua sekat untuk dibersihkan secara terpisah. Gunakan air hangat dan sabun lembut, kemudian bilas hingga bersih. Hindari menggunakan bahan kimia keras atau sikat yang terlalu kasar yang bisa merusak permukaan.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item mb-4 border-b border-gray-200 pb-4">
+                    <button class="accordion-button flex justify-between items-center w-full text-left font-bold text-lg py-2 focus:outline-none">
+                        <span>Apakah bisa memilih warna?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content hidden pt-2 text-gray-600">
+                        <p>Tentu bisa! Kami menyediakan 4 pilihan warna: Pink, Blue, Beige, dan Tosca. Silakan cantumkan warna pilihan Anda pada saat pemesanan. Jika tidak dicantumkan, kami akan mengirimkan warna yang tersedia.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item mb-4 border-b border-gray-200 pb-4">
+                    <button class="accordion-button flex justify-between items-center w-full text-left font-bold text-lg py-2 focus:outline-none">
+                        <span>Bagaimana jika produk rusak saat diterima?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content hidden pt-2 text-gray-600">
+                        <p>Kami memberikan garansi 14 hari untuk produk yang rusak saat diterima. Silakan laporkan maksimal 3 hari setelah menerima produk dengan menyertakan foto bukti kerusakan melalui WhatsApp CS kami di 085236699497. Kami akan segera memproses penggantian produk.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky CTA -->
+    <div class="sticky-cta">
+        <a href="#order" class="buy-btn flex items-center px-6 py-3 rounded-full font-bold shadow-lg">
+            <i class="fas fa-shopping-cart mr-2"></i> Pesan Sekarang
+        </a>
+    </div>
+
+    <!-- Lightbox for Testimonials -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="close-lightbox">&times;</span>
+            <img id="lightbox-img" class="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <!-- Zoom Modal for Product Gallery -->
+    <div id="zoom-modal" class="zoom-modal">
+        <div class="zoom-content">
+            <span class="close-zoom">&times;</span>
+            <img id="zoom-img" class="zoom-img" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Accordion
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Testimonial Lightbox
+        const testimonialImgs = document.querySelectorAll('.testimonial-img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeLightbox = document.querySelector('.close-lightbox');
+
+        testimonialImgs.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.classList.add('show');
+                lightboxImg.src = img.src;
+            });
+        });
+
+        closeLightbox.addEventListener('click', () => {
+            lightbox.classList.remove('show');
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('show');
+            }
+        });
+
+        // Product Gallery Zoom
+        const productImgs = document.querySelectorAll('.product-gallery img');
+        const zoomModal = document.getElementById('zoom-modal');
+        const zoomImg = document.getElementById('zoom-img');
+        const closeZoom = document.querySelector('.close-zoom');
+
+        productImgs.forEach(img => {
+            img.addEventListener('click', () => {
+                zoomModal.classList.add('show');
+                zoomImg.src = img.src;
+            });
+        });
+
+        closeZoom.addEventListener('click', () => {
+            zoomModal.classList.remove('show');
+        });
+
+        zoomModal.addEventListener('click', (e) => {
+            if (e.target === zoomModal) {
+                zoomModal.classList.remove('show');
+            }
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const endDate = new Date();
+            endDate.setDate(now.getDate() + 3); // 3 days from now
+            
+            const diff = endDate - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Sticky CTA
+        window.addEventListener('scroll', function() {
+            const stickyCta = document.querySelector('.sticky-cta');
+            if (window.scrollY > 300) {
+                stickyCta.classList.add('show');
+            } else {
+                stickyCta.classList.remove('show');
+            }
+        });
+
+        // Testimonial Carousel
+        const carousel = document.querySelector('.carousel-inner');
+        const items = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.querySelector('.carousel-control.prev');
+        const nextBtn = document.querySelector('.carousel-control.next');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        
+        let currentIndex = 0;
+        const itemWidth = 100 / items.length;
+        
+        function updateCarousel() {
+            let translateValue;
+            
+            if (window.innerWidth >= 1024) {
+                translateValue = -currentIndex * 33.333;
+            } else if (window.innerWidth >= 768) {
+                translateValue = -currentIndex * 50;
+            } else {
+                translateValue = -currentIndex * 100;
+            }
+            
+            carousel.style.transform = `translateX(${translateValue}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+        
+        function nextSlide() {
+            if (currentIndex < items.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateCarousel();
+        }
+        
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = items.length - 1;
+            }
+            updateCarousel();
+        }
+        
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+        
+        // Auto-scroll
+        let autoScroll = setInterval(nextSlide, 5000);
+        
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoScroll);
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
+            autoScroll = setInterval(nextSlide, 5000);
+        });
+        
+        // Responsive adjustments
+        window.addEventListener('resize', updateCarousel);
+        
+        // Initialize
+        updateCarousel();
+    </script>
+</body>
+</html>
